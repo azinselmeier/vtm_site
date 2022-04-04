@@ -1,43 +1,8 @@
 {% extends 'base.html' %} {% block body %}
 
-<h1>My List of Friends</h1>
-<hr />
-<h3>Be my friend:</h3>
-<form action="/add_friend" method="POST">
-  <label for="fname">First name:</label>
-  <input type="text" id="fname" name="fname" autofocus required />
-  <br />
-  <label for="lname">Last name:</label>
-  <input type="text" id="lname" name="lname" />
-  <br />
-  <label for="email">Email:</label>
-  <input type="email" id="email" name="email" />
-  <br /><br />
-  <input type="submit" id="submit" value="I'll Be Your Friend" />
-  <input type="reset" value="Clear" />
-</form>
-<br />
-<br />
-
-<hr />
-<br />
-{% if friends %}
-<h3>My Friends</h3>
-<table id="friends">
-  <thead>
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Email Address</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    {% for friend in friends %}
-    <tr>
-      <td>{{ friend.name }}</td>
-      <td>{{ friend.email }}</td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
+<h1>Welcome to VTM!</h1>
+		<section>
+			<hr>
+			<img src="tanks.jpeg" alt="Above Ground Vertical Tanks" >
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 {% endif %} {% endblock %}
