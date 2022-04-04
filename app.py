@@ -7,24 +7,16 @@ friend_list = [{"name": "Mike Colbert", "email":"mike@mike.com" } ]
 
 @app.route('/')
 def index():
-    return render_template('index.html', pageTitle='Mike\'s Friends', friends = friend_list)
+    return render_template('index.html', pageTitle='Vertical Tank Maintenance', friends = friend_list)
 
-@app.route('/mike')
-def mike():
-    return render_template('mike.html', pageTitle='About Mike')
+@app.route('/about')
+def about():
+    return render_template('about.html', pageTitle='About')
 
-@app.route('/add_friend', methods=['GET', 'POST'])
-def add_friend():
-    if request.method == 'POST':
-        form = request.form
-        fname = form['fname']
-        lname = form['lname']
-        email = form['email']
-        friend_dict = {"name": fname + " " + lname, "email": email}
-        friend_list.append(friend_dict)
-        return redirect(url_for('index'))
-    return redirect(url_for('index'))
-    
+@app.route('/estimate')
+def estimate():
+    return render_template('estimate.html', pageTitle='Estimate')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
