@@ -6,4 +6,47 @@
 <h2>VTM Estimator</h2>
 <hr>
 
+<h3>Provide Inputs:</h3>
+<form action="/vtm_inputs" method="POST">
+  <label for="radius">radius:</label>
+  <input type="text" id="radius" name="Tank radius" autofocus required />
+  <br />
+  <label for="height">height:</label>
+  <input type="text" id="height" name="Tank height" />
+  <br />
+  <input type="submit" id="submit" value="Calculate Estimate" />
+  <input type="reset" value="Clear" />
+</form>
+<br />
+<br />
+
+{% if estimate %}
+The estimate based on inputs is ${{ estimate }}
+{% endif %}
+
+
+<hr />
+<br />
+{% if inputs %}
+<h3>Estimates</h3>
+<table id="Estmate">
+  <thead>
+    <tr>
+      <th scope="col">radius</th>
+      <th scope="col">height</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for input in inputs %}
+    <tr>
+      <td>{{ input.radius }}</td>
+      <td>{{ input.height }}</td>
+	  <td>{{ estimate }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+
 {% endblock %}

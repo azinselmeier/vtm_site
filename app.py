@@ -15,6 +15,24 @@ def about():
 def estimate():
     return render_template('estimate.html', pageTitle='Estimate')
 
+input_list = [{"radius": "14", "height":"220" } ]
+
+@app.route('/vtm_inputs', methods=['GET', 'POST'])
+def vtm_inputs():
+    if request.method == 'POST':
+        form = request.form
+        radius = float(form['radius'])
+        height = float(form['height'])
+        toparea = 3.14*radius**2
+        sidearea = 2*(2.14*(radius*height))
+        totalarea = toparea + sidearea
+        squarefeet = totalarea/144
+        materialcost = 25 * squarefeet
+        laborcost = 15 * squarefeet
+        cost = materialcost + laborcost
+        print(cost)
+        return render_template('estimate.html', estimate = cost)
+    return render_template('estimate.html', pageTitle = "Estimate")
 
 if __name__ == '__main__':
     app.run(debug=True)
