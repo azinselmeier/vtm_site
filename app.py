@@ -23,15 +23,15 @@ def vtm_inputs():
         form = request.form
         radius = float(form['radius'])
         height = float(form['height'])
-        toparea = 3.14*radius**2
-        sidearea = 2*(2.14*(radius*height))
+        toparea = 3.14 * radius**2
+        sidearea = 2 * (3.14 * (radius * height))
         totalarea = toparea + sidearea
         squarefeet = totalarea/144
         materialcost = 25 * squarefeet
         laborcost = 15 * squarefeet
         cost = materialcost + laborcost
         print(cost)
-        return render_template('estimate.html', estimate = cost)
+        return render_template('estimate.html', cost = estimate)
     return render_template('estimate.html', pageTitle = "Estimate")
 
 if __name__ == '__main__':
