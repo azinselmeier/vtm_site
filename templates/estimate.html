@@ -9,19 +9,19 @@
 <h3>Provide Inputs:</h3>
 <form action="/vtm_inputs" method="POST">
   <label for="radius">radius:</label>
-  <input type="number" id="radius" name="Tank radius"/>
+  <input type="number" id="radius" name="radius"/>
   <br />
   <label for="height">height:</label>
-  <input type="number" id="height" name="Tank height" />
+  <input type="number" id="height" name="height" />
   <br />
-  <input type="submit" id="submit" value="Calculate Estimate" />
+  <input type="submit" id="submit" name="Calculate Estimate" />
   <input type="reset" value="Clear" />
 </form>
 <br />
 <br />
 
 {% if estimate %}
-The estimate based on inputs is ${{estimate}}
+{{estimate}}
 {% endif %}
 
 
