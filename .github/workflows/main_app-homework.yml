@@ -30,9 +30,12 @@ jobs:
       
       - name: Install dependencies
         run: pip install -r requirements.txt
-        
+      
+      - name: install pytest
+        run: pop install pytest
+
       - name: Run tests with pytest
-        run: python3 -m pytest
+        run: python -m pytest
       
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v2
