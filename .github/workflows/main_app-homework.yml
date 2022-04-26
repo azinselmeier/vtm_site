@@ -8,6 +8,9 @@ on:
   push:
     branches:
       - main
+  pull_origin:
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
@@ -31,7 +34,12 @@ jobs:
         run: pip install -r requirements.txt
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
-      
+      - name: install pytest
+        run: pop install pytest
+
+      - name: Run tests with pytest
+        run: python -m pytest
+
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v2
         with:
