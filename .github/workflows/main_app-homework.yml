@@ -2,13 +2,10 @@
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 # More info on Python, GitHub Actions, and Azure App Service: https://aka.ms/python-webapps-actions
 
-name: pipeline
+name: Build and deploy Python app to Azure Web App - App-Homework
 
 on:
   push:
-    branches:
-      - main
-  pull_request:
     branches:
       - main
   workflow_dispatch:
@@ -34,12 +31,7 @@ jobs:
         run: pip install -r requirements.txt
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
-      - name: install pytest
-        run: pop install pytest
-
-      - name: Run tests with pytest
-        run: python -m pytest
-
+      
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v2
         with:
@@ -68,4 +60,4 @@ jobs:
         with:
           app-name: 'App-Homework'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9AE7C09FBCDC46C390739D153B607EB5 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_01F72CA79FE24D55BEE18ECE15D8E9BB }}
