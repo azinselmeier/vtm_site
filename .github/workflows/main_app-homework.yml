@@ -6,9 +6,8 @@ name: pipeline
 
 on:
   push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
@@ -30,12 +29,8 @@ jobs:
       
       - name: Install dependencies
         run: pip install -r requirements.txt
-      
-      - name: install pytest
-        run: pop install pytest
-
-      - name: Run tests with pytest
-        run: python -m pytest
+        
+      # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
       
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v2
@@ -65,4 +60,4 @@ jobs:
         with:
           app-name: 'App-Homework'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_8BFFEFB0222F42339C36A3B50A781556 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9AE7C09FBCDC46C390739D153B607EB5 }}
