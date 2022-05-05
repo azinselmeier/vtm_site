@@ -1,4 +1,5 @@
 # Flask Demo
+This repository was used for an assignment at the University of Iowa.
 ![MicrosoftAzure](https://img.shields.io/badge/-Azure-blue?logo=microsoftazure)
 ![Flask](https://img.shields.io/badge/-Flask-black?logo=flask)
 
